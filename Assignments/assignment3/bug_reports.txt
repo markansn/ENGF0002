@@ -1,0 +1,2 @@
+Bug 1:
+Summary: Once the frog is hit by a vehicle, after switching to a skull and crossbones, it 

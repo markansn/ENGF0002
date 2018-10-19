@@ -191,13 +191,13 @@ class View(Frame):
         #Load all the images from files
         self.frog_pngs = []
         for i in range(1, 10):
-            self.frog_pngs.append(PhotoImage(file = './frog' + str(i) + '.png').zoom(2))
+            self.frog_pngs.append(PhotoImage(file = './frog' + str(i) + '.gif').zoom(2))
         self.car_pngs = []
         for i in range(1, 5):
-            self.car_pngs.append(PhotoImage(file = './car' + str(i) + '.png').zoom(2))
+            self.car_pngs.append(PhotoImage(file = './car' + str(i) + '.gif').zoom(2))
         self.turtle_pngs = []
         for i in range(1, 3):
-            self.turtle_pngs.append(PhotoImage(file = './turtle' + str(i) + '.png').zoom(2))
+            self.turtle_pngs.append(PhotoImage(file = './turtle' + str(i) + '.gif').zoom(2))
 
         self.init_scenery()
 
