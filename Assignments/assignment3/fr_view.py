@@ -191,7 +191,7 @@ class View(Frame):
 
         #Load all the images from files
         self.frog_pngs = []
-        for i in range(1, 10):
+        for i in range(1, 10): 
             self.frog_pngs.append(PhotoImage(file = './frog' + str(i) + '.gif').zoom(2))
         self.car_pngs = []
         for i in range(1, 5):

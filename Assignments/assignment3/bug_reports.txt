@@ -1,2 +1,43 @@
-Bug 1:
-Summary: Once the frog is hit by a vehicle, after switching to a skull and crossbones, it 
+Bug Reports assignment 3
+
+Bug 1
+
+Summary: Lives drained when frog hits car / falls into lake.
+
+Description: Once the frog has been hit by a car, the death animation is displayed. Afterwards it seems that the frog briefly reappears, another life is lost, and the process repeats again until all lives are lost. 
+
+What should happen: The frog should return to the beginning of the level with one life lost.
+
+To reproduce: Get the frog to be hit by a car.
+
+Explanation: When the frog is hit / falls in the water, the position of the frog is never reset, so it continually dies until the player runs out of lives.
+
+Solution: After the frog has died, and the death animation has played out, the reset_position() function in the model can be called. 
+In view:
+    def check_undead(self, time_now):
+        if time_now - self.died_time < 1:
+            #still dead
+            return
+        self.dead = False
+        self.frog.reset_position()
+        self.canvas.delete(self.items[0])
+        self.items.clear()
+        self.draw()
+
+Bug 2
+
+Summary: Frog cannot hop onto the turtles.
+
+Description: When the frog hops onto a turtle, the game seems to act like it has hit the water and the frog dies.
+
+What should happen: The frog should be able to sit on the turtles.
+
+To reproduce: Attempt to get the frog to hop onto the turtles.
+
+Explination: Due to a simple typo in check_frog_crossing_river(), the value of on_log is never changed and is always none, so even if the frog is on the log it still dies.
+
+Solution: Fix typo. Line 374
+                if log.contains(self.frog):
+                    on_log = log
+                    print("here")
+                    break
