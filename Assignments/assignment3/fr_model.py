@@ -34,7 +34,17 @@ class RiverObject():
 
     def contains(self, frog):
         (frog_x, frog_y) = frog.get_position()
+        print("frogx " + str(frog_x))
+        print("frogy " + str(frog_y))
+        print("selfx " + str(self.x))
+        print("selfy " + str(self.y))
+
         if frog_y != self.y or frog_x < self.x or frog_x > self.x + self.width:
+            print("false")
+            print("width " + str(self.width))
+            print(frog_y != self.y)
+            print(frog_x < self.x)
+            print(frog_x > self.x + self.width)
             return False
         return True
 
@@ -369,6 +379,7 @@ class Model():
                     on_long = log
                     break
         if on_log is None:
+
             # frog is not on a log - it must be in the water
             self.died()
             return
