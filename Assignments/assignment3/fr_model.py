@@ -36,10 +36,10 @@ class RiverObject():
         (frog_x, frog_y) = frog.get_position()
         
 
-        if frog_y != self.y or frog_x < self.x or frog_x > self.x + self.width:
+        if frog_y != self.y or frog_x < self.x-20 or frog_x > self.x + self.width - 20:
         
             return False
-        print("DOES CONTAIN")
+
         return True
 
 #logs and turtles are both river objects - they move and act mostly the same
@@ -372,12 +372,11 @@ class Model():
             for log in self.logs:
                 if log.contains(self.frog):
                     on_log = log
-                    print("here")
                     break
         if on_log is None:
 
             # frog is not on a log - it must be in the water
-            print("DED")
+        
             self.died()
             return
         else:

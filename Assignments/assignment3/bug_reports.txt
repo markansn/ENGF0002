@@ -1,6 +1,12 @@
 Bug Reports assignment 3
 
-Bug 1
+TODO:
+Game restart freeze
+Frog can 'fly' if foward is held down
+Invisible third turtles
+Leftmost win spot doesn't work
+
+<<<<<<<<<Bug 1>>>>>>>>>>
 
 Summary: Lives drained when frog hits car / falls into lake.
 
@@ -24,7 +30,7 @@ In view:
         self.items.clear()
         self.draw()
 
-Bug 2
+<<<<<<<<<<Bug 2>>>>>>>>>>
 
 Summary: Frog cannot hop onto the turtles.
 
@@ -41,3 +47,43 @@ Solution: Fix typo. Line 374
                     on_log = log
                     print("here")
                     break
+
+
+<<<<<<<<<<Bug 3>>>>>>>>>>
+
+Summary: Frog can float above the water on the end of a log object.
+
+Description: The frog can hang off the end of a log as long as a tiny bit of it is touching the rightmost side of the log.
+
+What should happen: If the frog is not compleatly within the bounds of the log, the frog should die.
+
+To reproduce: Hop onto a log in such a way to clip the rightmost hand side of the log, the frog however does not die. 
+
+Explination: This bug is due to the nature of the way coordinates are handled by the game. As the coordinates of the frog start at the leftmost side of the frog. The problem is the bounds of the log are not correctly checked against the position of the frog.
+
+Solution: 
+
+    def contains(self, frog):
+        (frog_x, frog_y) = frog.get_position()
+        
+
+        if frog_y != self.y or frog_x < self.x-20 or frog_x > self.x + self.width - 20:
+        
+            return False
+
+        return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
