@@ -268,6 +268,7 @@ class Model():
             x = x + GRID_SIZE + spacing
             self.homes_x.append(x)
             self.homes_occupied.append(False)
+        print(self.homes_x)
 
     def frog_is_home(self, home_num):
         assert(home_num >= 0 and home_num <= 4)
@@ -362,7 +363,7 @@ class Model():
     def check_frog_crossing_river(self):
         # frog is crossing the river
         on_log = self.frog.on_log()
-        print(on_log)
+        
         if (not (on_log is None)) and (not on_log.contains(self.frog)):
             # frog was on a log, but has now left that log
             on_log = None
@@ -394,17 +395,22 @@ class Model():
     def check_frog_entering_home(self):
         # frog is attempting to enter home
         (x, y) = self.frog.get_position()
+        for a in self.homes_x:
+            print(a)
+
+        print(GRID_SIZE/2)
         for i in range(0, 5):
             if abs(self.homes_x[i] - x) < GRID_SIZE/2 and not self.homes_occupied[i]:
                 #we're in a free home
                 self.frog_is_home(i)
                 return
+            print("coordinates of frog: " + str(x) + " and " + str(y))
+            print((self.homes_x[i] - x) < GRID_SIZE/2)
+            print((self.homes_x[i] - x))
         self.died()
 
     def check_frog(self):
-        if self.frog.moving:
-            self.frog.finish_move()
-            return
+
         
         (x, y) = self.frog.get_position()
         if x < 0 or x > CANVAS_WIDTH:
@@ -420,6 +426,13 @@ class Model():
         elif y == GRID_SIZE * 3:
             # frog is attempting to enter home
             self.check_frog_entering_home()
+
+            
+        if self.frog.moving:
+            self.frog.finish_move()
+            return
+
+
 
     ''' adjust game speed so it's more or less the same on different machines '''
     def checkspeed(self):

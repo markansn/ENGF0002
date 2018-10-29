@@ -3,7 +3,7 @@ Bug Reports assignment 3
 TODO:
 Game restart freeze
 Frog can 'fly' if foward is held down
-Invisible third turtles
+
 Leftmost win spot doesn't work
 
 <<<<<<<<<Bug 1>>>>>>>>>>
@@ -74,6 +74,22 @@ Solution:
         return True
 
 
+<<<<<<<<<<Bug 4>>>>>>>>>>
+Summary: Frog can 'fly' across the stage to the end
+
+Description: By holding down a direction key, the frog 'flies' in that direction, and all things that should kill it are ignored.
+
+To reproduce: Hold down an arrow key.
+
+Explination: The movement of the frog is done before things such as collisions are checked.
+
+Solution: In check frog, move:
+
+   if self.frog.moving:
+            self.frog.finish_move()
+            return
+
+to the end of the function, so it is the last thing that is handled. All other checks are done first. 
 
 
 
@@ -82,8 +98,122 @@ Solution:
 
 
 
+[300, 500, 700, 900, 1100, 1300]
+20.0
+coordinates of frog: 94.35877346250572 and 120
+False
+205.64122653749428
+coordinates of frog: 94.35877346250572 and 120
+False
+405.6412265374943
+coordinates of frog: 94.35877346250572 and 120
+False
+605.6412265374943
+coordinates of frog: 94.35877346250572 and 120
+False
+805.6412265374943
+coordinates of frog: 94.35877346250572 and 120
+False
+1005.6412265374943
 
 
+coordinates of frog: 101.60225599701997 and 120
+False
+198.39774400298003
+coordinates of frog: 101.60225599701997 and 120
+False
+398.39774400298006
+coordinates of frog: 101.60225599701997 and 120
+False
+598.3977440029801
+coordinates of frog: 101.60225599701997 and 120
+False
+798.3977440029801
+coordinates of frog: 101.60225599701997 and 120
+False
+998.3977440029801
 
 
+[300, 500, 700, 900, 1100, 1300]
+20.0
+coordinates of frog: 100.9380323444674 and 120
+False
+199.0619676555326
+coordinates of frog: 100.9380323444674 and 120
+False
+399.0619676555326
+coordinates of frog: 100.9380323444674 and 120
+False
+599.0619676555326
+coordinates of frog: 100.9380323444674 and 120
+False
+799.0619676555326
+coordinates of frog: 100.9380323444674 and 120
+False
+999.0619676555326
+20.0
+
+[300, 500, 700, 900, 1100, 1300]
+20.0
+coordinates of frog: 93.27976684070873 and 120
+False
+206.72023315929127
+coordinates of frog: 93.27976684070873 and 120
+False
+406.7202331592913
+coordinates of frog: 93.27976684070873 and 120
+False
+606.7202331592913
+coordinates of frog: 93.27976684070873 and 120
+False
+806.7202331592913
+coordinates of frog: 93.27976684070873 and 120
+False
+1006.7202331592913
+
+
+20.0
+coordinates of frog: 500 and 120
+True
+-200
+20.0
+coordinates of frog: 100 and 120
+False
+200
+coordinates of frog: 100 and 120
+False
+400
+coordinates of frog: 100 and 120
+False
+600
+coordinates of frog: 100 and 120
+False
+800
+coordinates of frog: 100 and 120
+False
+1000
+
+[300, 500, 700, 900, 1100, 1300]
+300
+500
+700
+900
+1100
+1300
+20.0
+coordinates of frog: 100 and 120
+False
+200
+coordinates of frog: 100 and 120
+False
+400
+coordinates of frog: 100 and 120
+False
+600
+coordinates of frog: 100 and 120
+False
+800
+coordinates of frog: 100 and 120
+False
+1000
 
